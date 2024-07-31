@@ -26,4 +26,22 @@ I. Lý thuyết<br>
 - https://github.com/xmendez/wfuzz/blob/master/wordlist/Injections/Traversal.txt<br>
 
 II. lap: bean<br>
-1. 
+1. dùng tool phân tích url và tìm ra đc 1 url mới chứa các file<br>
+
+![image](https://github.com/user-attachments/assets/0fde815e-ff2e-480c-9064-52160e5315ea)<br>
+
+2. tiếp tục phân tích url mới <br>
+
+![image](https://github.com/user-attachments/assets/acf9da53-facd-494e-9cda-b73717dd02f4)<br>
+
+3. check hết các thư mục và file để tìm file flag -> ko có -> quay lại thư mục hiện tại<br>
+
+![image](https://github.com/user-attachments/assets/79603f50-9c19-4117-825a-5501eb22c08c)<br>
+
+4. check thư mục để tìm file flag<br>
+
+![image](https://github.com/user-attachments/assets/5f94453a-a5dc-48a8-aec3-740d95916f68)<br>
+
+5. tải file về và lấy flag: FLAG{Nginx_nOt_aLWays_sEcUre_bY_The_waY}<br>
+
+![image](https://github.com/user-attachments/assets/aa6f4290-c2c5-4390-ac97-e06ee2f00508)<br>
