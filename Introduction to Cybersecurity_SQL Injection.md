@@ -30,4 +30,24 @@ I. Lý thuyết<br>
 2. cách để test<br>
 *. phát hiện:<br>
 - hiểu hành vi app và tìm hiểu khi nào nó tương tác vs database
-- 
+- nhập ''' -> dấu kết thúc chuỗi, ';' -> dùng trong truy vấn SQL để kết thúc câu lệnh<br>
+
+*. bỏ qua bộ lọc<br>
+- đôi khi truy vấn sẽ bị lọc để phát hiện khoảng trắng -> /**/: '/**/UNION/**/SELECT/**/password/**/FROM/**/Users/**/WHERE/**/name/**/LIKE/**/'admin'--
+- bỏ qua bộ lọc chặn bất kì kí tự or lệnh SQL -> %00: %00' UNION SELECT mật khẩu TỪ Người dùng WHERE username='admin'--<br>
+
+3. ảnh hưởng<br>
+- tiết lộ data bí mật
+- đánh cắp data user
+- truy cập trái phép vào system or acc
+- xóa or lm hỏng data<br>
+
+4. tool<br>
+- https://github.com/fuzzdb-project/fuzzdb/tree/master/attack/sql-injection
+- công cụ tiếp quản databse và tiêm SQL tự động<br>
+
+II. lap: Easy access<br>
+
+1. gửi: admin' or '1'='1; vào trường username + password bất kì -> login -> flag{!njection_3v3ry_wh3r3}<br>
+
+![image](https://github.com/user-attachments/assets/f6f348d3-4b85-449e-a4dc-2fc6661a820a)<br>
