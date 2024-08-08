@@ -37,4 +37,10 @@ I. Lý thuyết<br>
 + bất kì sự thay đổi nào nếu ko có data bổ sung thì ko ảnh hg đến ảnh, nếu có thì sẽ ảnh hưởng<br>
 
 II. lap: Keep it Simple<br>
-1. 
+1. mở source và phát hiện 3 file ảnh<br>
+
+![image](https://github.com/user-attachments/assets/74c37f2d-2c8a-4c4c-ac07-bd0882b4a709)<br>
+
+2. exiftool cả 3 ảnh -> flag: {S1mpl3sty_i$_th_@nswer}<br>
+
+![image](https://github.com/user-attachments/assets/34c8b961-8190-4375-a5f2-9adeb2c77462)<br>
